@@ -1,0 +1,1798 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | Cover All - Comprehensive Platform Solutions</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2E8B57',
+                        'primary-dark': '#1E6B47',
+                        'secondary-dark': '#1D4ED8',
+                        accent: '#F59E0B',
+                        'accent-dark': '#D97706',
+                    },
+                    fontFamily: {
+                        'inter': ['Poppins', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.3s ease-out',
+                        'bounce-slow': 'bounce 2s infinite',
+                        'pulse-slow': 'pulse 3s infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(10px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --primary: #2E8B57;
+            --primary-dark: #1E6B47;
+            --scrollbar-width: 8px;
+        }
+        
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .gradient-primary {
+            background: linear-gradient(135deg, #2E8B57 0%, #34C759 100%);
+        }
+        
+        .gradient-light {
+            background: linear-gradient(135deg, rgba(46, 139, 87, 0.1) 0%, rgba(52, 199, 89, 0.1) 100%);
+        }
+        
+        .gradient-dark {
+            background: linear-gradient(135deg, rgba(46, 139, 87, 0.9) 0%, rgba(34, 139, 34, 0.9) 100%);
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, #2E8B57 0%, #34C759 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+        
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Custom animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        /* Smooth transitions */
+        .transition-all {
+            transition: all 0.3s ease;
+        }
+        
+        /* Hover effects */
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: var(--scrollbar-width);
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-dark);
+        }
+        
+        /* Thin Mobile Scrollbar */
+        @media (max-width: 768px) {
+            ::-webkit-scrollbar {
+                width: 4px;
+            }
+        }
+        
+        /* Service navigation hide when scrolled to services */
+        .services-nav-hidden {
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        /* Service navigation buttons hover/click styles */
+        .service-nav-item:hover,
+        .service-nav-item.active {
+            background: linear-gradient(135deg, #2E8B57 0%, #34C759 100%);
+            color: white !important;
+            border-color: transparent;
+        }
+        
+        .service-nav-item:hover i,
+        .service-nav-item.active i {
+            color: white !important;
+        }
+
+        /* Progress Indicator */
+        .progress-indicator {
+            position: fixed;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 150px;
+            background: #e5e7eb;
+            border-radius: 2px;
+            z-index: 100;
+            display: none;
+        }
+        
+        @media (min-width: 768px) {
+            .progress-indicator {
+                display: block;
+            }
+        }
+        
+        .progress-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background: var(--primary);
+            border-radius: 2px;
+            transition: height 0.3s ease;
+        }
+
+        /* Mobile Menu Overlay (like contact page) */
+        .mobile-menu-open {
+            overflow: hidden;
+        }
+        
+        .mobile-menu-overlay {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+        }
+
+        /* Mobile Menu Animation */
+        #mobile-menu .absolute {
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        /* Navigation Styles */
+        .nav-item {
+            padding: 8px 0;
+        }
+
+        .nav-text {
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .nav-item:hover .nav-text {
+            color: #2E8B57;
+        }
+
+        .nav-item.active .nav-text {
+            color: #2E8B57;
+            font-weight: 600;
+        }
+
+        .nav-line {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(to right, #2E8B57, #1E6B47);
+            border-radius: 2px;
+            transform: translateX(-50%);
+            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+        }
+
+        .nav-item:hover .nav-line {
+            width: 100%;
+            opacity: 1;
+        }
+
+        .nav-item.active .nav-line {
+            width: 100%;
+            opacity: 1;
+            background: linear-gradient(to right, #2E8B57, #1E6B47);
+        }
+
+        /* Mobile Navigation */
+        .mobile-nav-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 0;
+            font-size: 16px;
+            color: #4b5563;
+            border-bottom: 1px solid #f3f4f6;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-nav-item:hover {
+            color: #2E8B57;
+            transform: translateX(4px);
+        }
+
+        .mobile-nav-item.active {
+            color: #2E8B57;
+            font-weight: 600;
+        }
+
+        /* Mobile menu items */
+        .mobile-nav-item {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+        }
+
+        /* Stats numbers */
+        .stats-number {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+        }
+
+        /* Smooth transitions */
+        .transition-all {
+            transition-property: all;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 200ms;
+        }
+
+        /* CTA Section */
+        .cta-gradient {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+        }
+        
+        /* Mobile Image Fixes */
+        @media (max-width: 768px) {
+            .thumbnail {
+                width: 100px !important;
+                height: 80px !important;
+                flex-shrink: 0;
+            }
+            
+            .thumbnail-container {
+                display: flex;
+                gap: 8px;
+                overflow-x: auto;
+                padding-bottom: 8px;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            .thumbnail-container::-webkit-scrollbar {
+                height: 4px;
+            }
+            
+            .thumbnail-container::-webkit-scrollbar-track {
+                background: #f1f1f1;
+                border-radius: 2px;
+            }
+            
+            .thumbnail-container::-webkit-scrollbar-thumb {
+                background: var(--primary);
+                border-radius: 2px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Progress Indicator -->
+    <div class="progress-indicator">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white z-50 shadow-sm">
+        <div class="container mx-auto px-6">
+            <div class="flex items-center justify-between py-4">
+                <a href="index.html" class="flex items-center space-x-3 group">
+                    <div class="w-12 h-12 bg-gradient-to-br from-primary to-primary-dark rounded-xl flex items-center justify-center shadow-md">
+                        <span class="text-white font-bold text-2xl">C</span>
+                    </div>
+                    <div>
+                        <span class="text-2xl font-bold text-gray-900 tracking-tight">Cover All</span>
+                        <span class="text-xs text-gray-500 block -mt-1">All-in-One Solutions</span>
+                    </div>
+                </a>
+                
+                <div class="hidden lg:flex items-center space-x-12">
+                    <a href="index.html" class="nav-item relative">
+                        <span class="nav-text text-gray-600">Home</span>
+                        <span class="nav-line"></span>
+                    </a>
+                    <a href="about.html" class="nav-item relative">
+                        <span class="nav-text text-gray-600">About</span>
+                        <span class="nav-line"></span>
+                    </a>
+                    <a href="services.html" class="nav-item relative active">
+                        <span class="nav-text text-primary font-medium">Services</span>
+                        <span class="nav-line active"></span>
+                    </a>
+                    <a href="contact.php" class="nav-item relative">
+                        <span class="nav-text text-gray-600">Contact</span>
+                        <span class="nav-line"></span>
+                    </a>
+                </div>
+                
+                <button id="mobile-menu-button" class="lg:hidden text-gray-600 hover:text-primary transition-colors">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 hidden lg:hidden mobile-menu-overlay">
+        <div class="absolute right-0 top-0 h-full w-4/5 max-w-sm bg-white shadow-xl transform transition-transform duration-300 translate-x-full">
+            <div class="h-full overflow-y-auto">
+                <!-- Header -->
+                <div class="p-6 border-b border-gray-100">
+                    <div class="flex items-center justify-between">
+                        <a href="index.html" class="flex items-center space-x-3">
+                            <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+                                <span class="text-white font-bold text-xl">C</span>
+                            </div>
+                            <div>
+                                <span class="text-xl font-bold text-gray-900">Cover All</span>
+                                <span class="text-xs text-gray-600 block">All-in-One Solutions</span>
+                            </div>
+                        </a>
+                        <button id="close-mobile-menu" class="text-gray-400 hover:text-gray-600">
+                            <i class="fas fa-times text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Navigation Links -->
+                <div class="p-6">
+                    <div class="space-y-2">
+                        <a href="index.html" class="flex items-center justify-between p-4 rounded-xl hover:bg-gray-50 transition-colors">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-home text-gray-600"></i>
+                                </div>
+                                <span class="text-gray-700 font-medium">Home</span>
+                            </div>
+                            <i class="fas fa-chevron-right text-gray-400 text-sm"></i>
+                        </a>
+                        
+                        <a href="about.html" class="flex items-center justify-between p-4 rounded-xl hover:bg-gray-50 transition-colors">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-info-circle text-gray-600"></i>
+                                </div>
+                                <span class="text-gray-700 font-medium">About</span>
+                            </div>
+                            <i class="fas fa-chevron-right text-gray-400 text-sm"></i>
+                        </a>
+                        
+                        <a href="services.html" class="flex items-center justify-between p-4 rounded-xl bg-primary/5 border-l-4 border-primary transition-colors">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-concierge-bell text-primary"></i>
+                                </div>
+                                <span class="text-primary font-semibold">Services</span>
+                            </div>
+                            <i class="fas fa-chevron-right text-primary text-sm"></i>
+                        </a>
+                        
+                        <a href="contact.php" class="flex items-center justify-between p-4 rounded-xl hover:bg-gray-50 transition-colors">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-phone-alt text-gray-600"></i>
+                                </div>
+                                <span class="text-gray-700 font-medium">Contact</span>
+                            </div>
+                            <i class="fas fa-chevron-right text-gray-400 text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Stats Section -->
+                <div class="p-6 border-t border-gray-100">
+                    <h4 class="text-lg font-semibold text-gray-800 mb-4">Why Choose Us</h4>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="text-center p-4 bg-gray-50 rounded-xl">
+                            <div class="text-2xl font-bold text-primary mb-1">15K+</div>
+                            <div class="text-xs text-gray-600">Happy Clients</div>
+                        </div>
+                        <div class="text-center p-4 bg-gray-50 rounded-xl">
+                            <div class="text-2xl font-bold text-primary mb-1">98%</div>
+                            <div class="text-xs text-gray-600">Satisfaction</div>
+                        </div>
+                        <div class="text-center p-4 bg-gray-50 rounded-xl col-span-2">
+                            <div class="text-2xl font-bold text-primary mb-1">24/7</div>
+                            <div class="text-xs text-gray-600">Support Available</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- CTA Button -->
+                <div class="p-6 border-t border-gray-100">
+                    <a href="services.html" 
+                       class="w-full bg-gradient-to-r from-primary to-primary-dark text-white px-6 py-4 rounded-xl hover:shadow-lg transition-all duration-300 font-semibold flex items-center justify-center space-x-2">
+                        <i class="fas fa-paper-plane"></i>
+                        <span>Explore Now</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+<button id="backToTop" class="fixed bottom-8 right-8 z-40 bg-primary hover:bg-primary-dark text-white p-3 rounded-full shadow-lg transition-all duration-300 opacity-0 transform translate-y-10" style="box-shadow: 0 4px 20px rgba(46, 139, 87, 0.3);">
+    <i class="fas fa-chevron-up text-xl"></i>
+</button>
+
+<script>
+// Back to Top Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const backToTopButton = document.getElementById('backToTop');
+    if (backToTopButton) {
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('show');
+                backToTopButton.style.opacity = '1';
+                backToTopButton.style.transform = 'translateY(0)';
+            } else {
+                backToTopButton.classList.remove('show');
+                backToTopButton.style.opacity = '0';
+                backToTopButton.style.transform = 'translateY(10px)';
+            }
+        });
+        
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+});
+</script>
+
+<style>
+#backToTop.show { opacity: 1 !important; transform: translateY(0) !important; }
+#backToTop:hover { transform: translateY(-3px) !important; box-shadow: 0 6px 25px rgba(46, 139, 87, 0.4) !important; }
+@media (max-width: 768px) { #backToTop { bottom: 6rem; right: 1.5rem; padding: 0.75rem; } }
+</style>
+    <!-- Services Hero -->
+
+    <section class="pt-32 pb-20 relative overflow-hidden bg-cover bg-center" 
+         style="background-image: url('https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');">
+
+    <!-- Gradient overlay -->
+<!-- Gradient overlay with fallback -->
+<div class="absolute inset-0 bg-gradient-to-r from-gray-900/80 via-gray-800/70 to-gray-900/60"></div>
+<!-- OR -->
+<div class="absolute inset-0 bg-gradient-to-r from-gray-900/80 via-gray-800/70 to-emerald-900/60"></div>
+            
+             <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-4xl mx-auto text-center text-white">
+                <span class="inline-block bg-white/20 text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
+                    COMPREHENSIVE SOLUTIONS
+                </span>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-on-scroll">
+                    One Platform, <span class="gradient-text">Endless Possibilities</span>
+                </h1>
+                <p class="text-lg md:text-xl text-white/90 mb-8 animate-on-scroll">
+                    Discover our suite of premium services designed to simplify your life and business operations. From transportation to maintenance, we've got you covered.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center animate-on-scroll">
+                    <a href="#core-services" class="bg-gradient-to-r from-primary to-[#3B82F6] text-white px-5 sm:px-6 py-3 rounded-xl font-semibold hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex items-center justify-center gap-2">
+                        <i class="fas fa-rocket mr-2"></i>Explore Services
+                    </a>
+                    <a href="contact.php" class="border-2 border-white/30 text-white px-5 sm:px-6 py-3 rounded-xl font-semibold hover:bg-white/10 transition-all duration-300 flex items-center justify-center gap-2">
+                        <i class="fas fa-calendar-check mr-2"></i>Get Custom Quote
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+<style>        .gradient-text {
+            background: linear-gradient(45deg, #2E8B57, #3B82F6, #F59E0B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }</style>
+    <!-- Services Navigation -->
+    <section class="sticky top-16 z-40 bg-white shadow-lg py-4 transition-all duration-300" id="services-nav-section">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
+                <a href="#transportation" class="service-nav-item flex flex-col items-center p-4 rounded-xl border border-gray-200 hover:gradient-primary hover:text-white hover:border-transparent transition-all hover-lift group">
+                    <i class="fas fa-car text-3xl text-green-600 mb-3 group-hover:text-white"></i>
+                    <span class="font-semibold text-center">Transportation</span>
+                </a>
+                <a href="#waste" class="service-nav-item flex flex-col items-center p-4 rounded-xl border border-gray-200 hover:gradient-primary hover:text-white hover:border-transparent transition-all hover-lift group">
+                    <i class="fas fa-trash-alt text-3xl text-green-600 mb-3 group-hover:text-white"></i>
+                    <span class="font-semibold text-center">Waste Management</span>
+                </a>
+                <a href="#logistics" class="service-nav-item flex flex-col items-center p-4 rounded-xl border border-gray-200 hover:gradient-primary hover:text-white hover:border-transparent transition-all hover-lift group">
+                    <i class="fas fa-shipping-fast text-3xl text-green-600 mb-3 group-hover:text-white"></i>
+                    <span class="font-semibold text-center">Logistics</span>
+                </a>
+                <a href="#maintenance" class="service-nav-item flex flex-col items-center p-4 rounded-xl border border-gray-200 hover:gradient-primary hover:text-white hover:border-transparent transition-all hover-lift group">
+                    <i class="fas fa-tools text-3xl text-green-600 mb-3 group-hover:text-white"></i>
+                    <span class="font-semibold text-center">Maintenance</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Services -->
+    <section class="py-20 bg-white" id="core-services">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Our Premium Services</h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+                    Comprehensive solutions designed for modern living and business operations
+                </p>
+            </div>
+
+            <!-- Transportation Service -->
+            <div class="mb-32" id="transportation">
+                <div class="text-center mb-12 animate-on-scroll">
+                    <span class="inline-block gradient-primary text-white px-6 py-2 rounded-full text-sm font-semibold mb-4">
+                        Most Popular
+                    </span>
+                    <h3 class="text-2xl md:text-3xl font-bold text-gray-800 mb-3">Laride </h3>
+                    <p class="text-gray-600">Premium transportation solutions for every need</p>
+                </div>
+                
+                <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+                    <div class="lg:w-1/2 animate-on-scroll">
+                        <div class="mb-4 rounded-2xl overflow-hidden shadow-2xl relative" id="transportation-main-image">
+                            <img src="laride.jpg" 
+                                 alt="Premium Transportation"
+                                 class="w-full h-64 md:h-80 object-cover transition-opacity duration-300">
+                        </div>
+                        <div class="flex gap-3 overflow-x-auto pb-2 thumbnail-container">
+                            <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
+                                 alt="Luxury Vehicle"
+                                 class="thumbnail w-24 h-20 object-cover rounded-lg cursor-pointer opacity-70 border-2 border-transparent hover:border-green-500 hover:opacity-100 transition-all"
+                                 data-full="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                                 data-service="transportation">
+                            <img src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
+                                 alt="Professional Driver"
+                                 class="thumbnail w-24 h-20 object-cover rounded-lg cursor-pointer opacity-70 border-2 border-transparent hover:border-green-500 hover:opacity-100 transition-all"
+                                 data-full="https://images.unsplash.com/photo-1553440569-bcc63803a83d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                                 data-service="transportation">
+                            <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                                 alt="Real-time Tracking"
+                                 class="thumbnail w-24 h-20 object-cover rounded-lg cursor-pointer opacity-70 border-2 border-transparent hover:border-green-500 hover:opacity-100 transition-all active-thumbnail"
+                                 data-full="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                                 data-service="transportation">
+                        </div>
+                    </div>
+                    
+                    <div class="lg:w-1/2 animate-on-scroll">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                            <div class="flex gap-4 p-4 rounded-xl bg-gradient-light">
+                                <div class="w-12 h-12 gradient-light rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-clock text-green-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-gray-800 mb-1">24/7 Availability</h5>
+                                    <p class="text-gray-600 text-sm">Round-the-clock service for your convenience</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 p-4 rounded-xl bg-gradient-light">
+                                <div class="w-12 h-12 gradient-light rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-shield-alt text-green-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-gray-800 mb-1">Licensed Professionals</h5>
+                                    <p class="text-gray-600 text-sm">Background-checked and certified drivers</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 p-4 rounded-xl bg-gradient-light">
+                                <div class="w-12 h-12 gradient-light rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-map-marker-alt text-green-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-gray-800 mb-1">Real-time Tracking</h5>
+                                    <p class="text-gray-600 text-sm">Live GPS tracking and ETA updates</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 p-4 rounded-xl bg-gradient-light">
+                                <div class="w-12 h-12 gradient-light rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-users text-green-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-gray-800 mb-1">Multiple Options</h5>
+                                    <p class="text-gray-600 text-sm">Economy, premium, and luxury vehicles</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p class="text-gray-700 mb-6 leading-relaxed">
+                            Our Laride transportation service provides safe, reliable, and convenient travel solutions for individuals, families, and businesses. Whether you need a ride across town, airport transfers, or transportation for special events, we ensure comfort, safety, and punctuality.
+                        </p>
+                        
+                        <div class="space-y-3 mb-8">
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                                <span class="text-gray-700">Corporate accounts with billing management</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                                <span class="text-gray-700">Scheduled rides and recurring bookings</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                                <span class="text-gray-700">Child safety seats available upon request</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                                <span class="text-gray-700">Group transportation for events and tours</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <button class="gradient-primary text-white px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity inline-flex items-center justify-center view-details-btn" data-service="transportation">
+                                <i class="fas fa-info-circle mr-2"></i>View Full Details
+                            </button>
+                            <a href="laride/index.html" class="border-2 border-green-600 text-green-600 px-6 py-3 rounded-lg font-semibold hover:bg-green-50 transition-colors inline-flex items-center justify-center">
+                              <i class="fas fa-rocket mr-2"></i>Explore Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Waste Management Service -->
+            <div class="mb-32" id="waste">
+                <div class="text-center mb-12 animate-on-scroll">
+                    <span class="inline-block bg-green-100 text-green-800 px-6 py-2 rounded-full text-sm font-semibold mb-4">
+                        Eco-Friendly
+                    </span>
+                    <h3 class="text-2xl md:text-3xl font-bold text-gray-800 mb-3">Eco Pick</h3>
+                    <p class="text-gray-600">Sustainable waste management solutions</p>
+                </div>
+                
+                <div class="flex flex-col lg:flex-row-reverse items-center gap-8 lg:gap-12">
+                    <div class="lg:w-1/2 animate-on-scroll">
+                        <div class="mb-4 rounded-2xl overflow-hidden shadow-2xl relative" id="waste-main-image">
+                            <img src="https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
+                                 alt="Waste Management"
+                                 class="w-full h-64 md:h-80 object-cover transition-opacity duration-300">
+                        </div>
+                        <div class="flex gap-3 overflow-x-auto pb-2 thumbnail-container">
+                            <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
+                                 alt="Recycling"
+                                 class="thumbnail w-24 h-20 object-cover rounded-lg cursor-pointer opacity-70 border-2 border-transparent hover:border-green-500 hover:opacity-100 transition-all"
+                                 data-full="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                                 data-service="waste">
+                            <img src="https://images.unsplash.com/photo-1550147760-44c9966d6bc7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
+                                 alt="Waste Collection"
+                                 class="thumbnail w-24 h-20 object-cover rounded-lg cursor-pointer opacity-70 border-2 border-transparent hover:border-green-500 hover:opacity-100 transition-all"
+                                 data-full="https://images.unsplash.com/photo-1550147760-44c9966d6bc7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                                 data-service="waste">
+                            <img src="https://images.unsplash.com/photo-1621451537084-482c73073a0f?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
+                                 alt="Composting"
+                                 class="thumbnail w-24 h-20 object-cover rounded-lg cursor-pointer opacity-70 border-2 border-transparent hover:border-green-500 hover:opacity-100 transition-all active-thumbnail"
+                                 data-full="https://images.unsplash.com/photo-1621451537084-482c73073a0f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                                 data-service="waste">
+                        </div>
+                    </div>
+                    
+                    <div class="lg:w-1/2 animate-on-scroll">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                            <div class="flex gap-4 p-4 rounded-xl bg-gradient-light">
+                                <div class="w-12 h-12 gradient-light rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-recycle text-green-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-gray-800 mb-1">Smart Recycling</h5>
+                                    <p class="text-gray-600 text-sm">Advanced sorting and processing technology</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 p-4 rounded-xl bg-gradient-light">
+                                <div class="w-12 h-12 gradient-light rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-calendar-alt text-green-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-gray-800 mb-1">Flexible Scheduling</h5>
+                                    <p class="text-gray-600 text-sm">Custom collection schedules to fit your needs</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 p-4 rounded-xl bg-gradient-light">
+                                <div class="w-12 h-12 gradient-light rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-industry text-green-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-gray-800 mb-1">Commercial Solutions</h5>
+                                    <p class="text-gray-600 text-sm">Tailored plans for businesses of all sizes</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 p-4 rounded-xl bg-gradient-light">
+                                <div class="w-12 h-12 gradient-light rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-certificate text-green-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-gray-800 mb-1">Certified Processing</h5>
+                                    <p class="text-gray-600 text-sm">Environmentally responsible waste handling</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p class="text-gray-700 mb-6 leading-relaxed">
+                            Our comprehensive waste management system offers regular trash collection, recycling services, and special waste disposal. We follow environmentally responsible practices to ensure your waste is handled properly while keeping your surroundings clean and sustainable.
+                        </p>
+                        
+                        <div class="space-y-3 mb-8">
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                                <span class="text-gray-700">Comprehensive recycling services (paper, plastic, glass, metal)</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                                <span class="text-gray-700">Composting for organic waste reduction</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                                <span class="text-gray-700">Special waste disposal (e-waste, hazardous materials)</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                                <span class="text-gray-700">Bulk item pickup and emergency cleanup services</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <button class="gradient-primary text-white px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity inline-flex items-center justify-center view-details-btn" data-service="waste">
+                                <i class="fas fa-info-circle mr-2"></i>View Full Details
+                            </button>
+                            <a href="waste/index.html" class="border-2 border-green-600 text-green-600 px-6 py-3 rounded-lg font-semibold hover:bg-green-50 transition-colors inline-flex items-center justify-center">
+                                <i class="fas fa-rocket mr-2"></i>Explore Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Logistics Service -->
+            <div class="mb-32" id="logistics">
+                <div class="text-center mb-12 animate-on-scroll">
+                    <span class="inline-block bg-blue-100 text-blue-800 px-6 py-2 rounded-full text-sm font-semibold mb-4">
+                        Fast Delivery
+                    </span>
+                    <h3 class="text-2xl md:text-3xl font-bold text-gray-800 mb-3">Swift Ship</h3>
+                    <p class="text-gray-600">End-to-end delivery solutions</p>
+                </div>
+                
+                <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+                    <div class="lg:w-1/2 animate-on-scroll">
+                        <div class="mb-4 rounded-2xl overflow-hidden shadow-2xl relative" id="logistics-main-image">
+                            <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                                 alt="Logistics Service"
+                                 class="w-full h-64 md:h-80 object-cover transition-opacity duration-300">
+                        </div>
+                        <div class="flex gap-3 overflow-x-auto pb-2 thumbnail-container">
+                            <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=2050&q=80" 
+                                 alt="Warehouse"
+                                 class="thumbnail w-24 h-20 object-cover rounded-lg cursor-pointer opacity-70 border-2 border-transparent hover:border-green-500 hover:opacity-100 transition-all"
+                                 data-full="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=2050&q=80"
+                                 data-service="logistics">
+                            <img src="https://images.unsplash.com/photo-1562887189-e5d078343de4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
+                                 alt="Package Tracking"
+                                 class="thumbnail w-24 h-20 object-cover rounded-lg cursor-pointer opacity-70 border-2 border-transparent hover:border-green-500 hover:opacity-100 transition-all"
+                                 data-full="https://images.unsplash.com/photo-1562887189-e5d078343de4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                                 data-service="logistics">
+                            <img src="https://images.unsplash.com/photo-1562979314-bee7453e911c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2067&q=80" 
+                                 alt="Delivery Van"
+                                 class="thumbnail w-24 h-20 object-cover rounded-lg cursor-pointer opacity-70 border-2 border-transparent hover:border-green-500 hover:opacity-100 transition-all active-thumbnail"
+                                 data-full="https://images.unsplash.com/photo-1562979314-bee7453e911c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2067&q=80"
+                                 data-service="logistics">
+                        </div>
+                    </div>
+                    
+                    <div class="lg:w-1/2 animate-on-scroll">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                            <div class="flex gap-4 p-4 rounded-xl bg-gradient-light">
+                                <div class="w-12 h-12 gradient-light rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-bolt text-green-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-gray-800 mb-1">Same-Day Delivery</h5>
+                                    <p class="text-gray-600 text-sm">Express delivery options available</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 p-4 rounded-xl bg-gradient-light">
+                                <div class="w-12 h-12 gradient-light rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-map-marked-alt text-green-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-gray-800 mb-1">Live Tracking</h5>
+                                    <p class="text-gray-600 text-sm">Real-time package location updates</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 p-4 rounded-xl bg-gradient-light">
+                                <div class="w-12 h-12 gradient-light rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-temperature-low text-green-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-gray-800 mb-1">Temperature Control</h5>
+                                    <p class="text-gray-600 text-sm">Climate-controlled transport available</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 p-4 rounded-xl bg-gradient-light">
+                                <div class="w-12 h-12 gradient-light rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-building text-green-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-gray-800 mb-1">B2B Solutions</h5>
+                                    <p class="text-gray-600 text-sm">Customized business logistics plans</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p class="text-gray-700 mb-6 leading-relaxed">
+                            From local deliveries to regional distribution, our logistics service ensures your packages and goods reach their destination safely and on time. We offer customized solutions for businesses and individuals alike with advanced tracking and temperature-controlled options.
+                        </p>
+                        
+                        <div class="space-y-3 mb-8">
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                                <span class="text-gray-700">Next-day delivery options for standard packages</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                                <span class="text-gray-700">Temperature-controlled transport for perishables</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                                <span class="text-gray-700">Business-to-business logistics and warehousing</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                                <span class="text-gray-700">International shipping assistance and customs clearance</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <button class="gradient-primary text-white px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity inline-flex items-center justify-center view-details-btn" data-service="logistics">
+                                <i class="fas fa-info-circle mr-2"></i>View Full Details
+                            </button>
+                            <a href="https://swiftshiip.kesug.com" class="border-2 border-green-600 text-green-600 px-6 py-3 rounded-lg font-semibold hover:bg-green-50 transition-colors inline-flex items-center justify-center">
+                               <i class="fas fa-rocket mr-2"></i>Explore Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Maintenance Service -->
+            <div id="maintenance">
+                <div class="text-center mb-12 animate-on-scroll">
+                    <span class="inline-block bg-purple-100 text-purple-800 px-6 py-2 rounded-full text-sm font-semibold mb-4">
+                        Certified
+                    </span>
+                    <h3 class="text-2xl md:text-3xl font-bold text-gray-800 mb-3">Property Maintenance</h3>
+                    <p class="text-gray-600">Professional care for your property</p>
+                </div>
+                
+                <div class="flex flex-col lg:flex-row-reverse items-center gap-8 lg:gap-12">
+                    <div class="lg:w-1/2 animate-on-scroll">
+                        <div class="mb-4 rounded-2xl overflow-hidden shadow-2xl relative" id="maintenance-main-image">
+                            <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                                 alt="Maintenance Service"
+                                 class="w-full h-64 md:h-80 object-cover transition-opacity duration-300">
+                        </div>
+                        <div class="flex gap-3 overflow-x-auto pb-2 thumbnail-container">
+                            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
+                                 alt="Plumbing"
+                                 class="thumbnail w-24 h-20 object-cover rounded-lg cursor-pointer opacity-70 border-2 border-transparent hover:border-green-500 hover:opacity-100 transition-all"
+                                 data-full="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                                 data-service="maintenance">
+                            <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
+                                 alt="Electrical"
+                                 class="thumbnail w-24 h-20 object-cover rounded-lg cursor-pointer opacity-70 border-2 border-transparent hover:border-green-500 hover:opacity-100 transition-all"
+                                 data-full="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                                 data-service="maintenance">
+                            <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
+                                 alt="HVAC"
+                                 class="thumbnail w-24 h-20 object-cover rounded-lg cursor-pointer opacity-70 border-2 border-transparent hover:border-green-500 hover:opacity-100 transition-all active-thumbnail"
+                                 data-full="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                                 data-service="maintenance">
+                        </div>
+                    </div>
+                    
+                    <div class="lg:w-1/2 animate-on-scroll">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                            <div class="flex gap-4 p-4 rounded-xl bg-gradient-light">
+                                <div class="w-12 h-12 gradient-light rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-exclamation-triangle text-green-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-gray-800 mb-1">24/7 Emergency</h5>
+                                    <p class="text-gray-600 text-sm">Round-the-clock emergency repair services</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 p-4 rounded-xl bg-gradient-light">
+                                <div class="w-12 h-12 gradient-light rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-user-check text-green-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-gray-800 mb-1">Licensed Techs</h5>
+                                    <p class="text-gray-600 text-sm">Certified and background-checked professionals</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 p-4 rounded-xl bg-gradient-light">
+                                <div class="w-12 h-12 gradient-light rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-clipboard-check text-green-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-gray-800 mb-1">Preventive Plans</h5>
+                                    <p class="text-gray-600 text-sm">Scheduled maintenance to prevent issues</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 p-4 rounded-xl bg-gradient-light">
+                                <div class="w-12 h-12 gradient-light rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-medal text-green-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-gray-800 mb-1">Quality Guarantee</h5>
+                                    <p class="text-gray-600 text-sm">All work backed by satisfaction guarantee</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p class="text-gray-700 mb-6 leading-relaxed">
+                            Keep your property in top condition with our comprehensive maintenance services. We handle everything from routine repairs to emergency fixes with our team of licensed professionals. Whether residential or commercial, we provide quality service you can trust.
+                        </p>
+                        
+                        <div class="space-y-3 mb-8">
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                                <span class="text-gray-700">Routine maintenance and preventive inspections</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                                <span class="text-gray-700">Plumbing, electrical, and HVAC services</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                                <span class="text-gray-700">Landscaping and outdoor maintenance</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                                <span class="text-gray-700">Renovation and remodeling projects</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <button class="gradient-primary text-white px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity inline-flex items-center justify-center view-details-btn" data-service="maintenance">
+                                <i class="fas fa-info-circle mr-2"></i>View Full Details
+                            </button>
+                            <a href="maintainace/index.html" class="border-2 border-green-600 text-green-600 px-6 py-3 rounded-lg font-semibold hover:bg-green-50 transition-colors inline-flex items-center justify-center">
+                                <i class="fas fa-rocket mr-2"></i>Explore Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Comparison -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Choose Your Perfect Plan</h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+                    Compare our service packages to find the best fit for your needs
+                </p>
+            </div>
+            
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden animate-on-scroll">
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="bg-gradient-to-r from-green-50 to-white">
+                                <th class="text-left p-8 font-semibold text-gray-700">Service Features</th>
+                                <th class="p-8">
+                                    <div class="text-center border-r border-gray-200 p-6">
+                                        <h4 class="text-xl font-bold text-gray-800 mb-2">Basic</h4>
+                                        <p class="text-gray-600 mb-4">Starting at <span class="text-2xl font-bold text-green-600">$49</span>/month</p>
+                                        <button class="w-full border-2 border-green-600 text-green-600 px-4 py-2 rounded-lg font-semibold hover:bg-green-50 transition-colors">
+                                            Select Plan
+                                        </button>
+                                    </div>
+                                </th>
+                                <th class="p-8">
+                                    <div class="text-center border-r border-gray-200 p-6 relative bg-gradient-light">
+                                        <span class="absolute top-4 right-4 gradient-primary text-white px-3 py-1 rounded-full text-xs font-semibold">
+                                            Most Popular
+                                        </span>
+                                        <h4 class="text-xl font-bold text-gray-800 mb-2">Professional</h4>
+                                        <p class="text-gray-600 mb-4">Starting at <span class="text-2xl font-bold text-green-600">$99</span>/month</p>
+                                        <button class="w-full gradient-primary text-white px-4 py-2 rounded-lg font-semibold hover:opacity-90 transition-opacity">
+                                            Select Plan
+                                        </button>
+                                    </div>
+                                </th>
+                                <th class="p-8">
+                                    <div class="text-center p-6">
+                                        <h4 class="text-xl font-bold text-gray-800 mb-2">Enterprise</h4>
+                                        <p class="text-gray-600 mb-4">Starting at <span class="text-2xl font-bold text-green-600">$299</span>/month</p>
+                                        <button class="w-full border-2 border-green-600 text-green-600 px-4 py-2 rounded-lg font-semibold hover:bg-green-50 transition-colors">
+                                            Select Plan
+                                        </button>
+                                    </div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gray-100">
+                                <td class="p-6 font-semibold text-gray-700 bg-gray-50">24/7 Support</td>
+                                <td class="p-6 text-center border-r border-gray-200"><i class="fas fa-check text-green-500"></i></td>
+                                <td class="p-6 text-center border-r border-gray-200 bg-gray-50"><i class="fas fa-check text-green-500"></i></td>
+                                <td class="p-6 text-center"><i class="fas fa-check text-green-500"></i></td>
+                            </tr>
+                            <tr class="border-b border-gray-100">
+                                <td class="p-6 font-semibold text-gray-700 bg-gray-50">Service Priority</td>
+                                <td class="p-6 text-center border-r border-gray-200">Standard</td>
+                                <td class="p-6 text-center border-r border-gray-200 bg-gray-50">Priority</td>
+                                <td class="p-6 text-center">VIP</td>
+                            </tr>
+                            <tr class="border-b border-gray-100">
+                                <td class="p-6 font-semibold text-gray-700 bg-gray-50">Dedicated Manager</td>
+                                <td class="p-6 text-center border-r border-gray-200"><i class="fas fa-times text-gray-400"></i></td>
+                                <td class="p-6 text-center border-r border-gray-200 bg-gray-50"><i class="fas fa-check text-green-500"></i></td>
+                                <td class="p-6 text-center"><i class="fas fa-check text-green-500"></i></td>
+                            </tr>
+                            <tr class="border-b border-gray-100">
+                                <td class="p-6 font-semibold text-gray-700 bg-gray-50">Custom Scheduling</td>
+                                <td class="p-6 text-center border-r border-gray-200">Limited</td>
+                                <td class="p-6 text-center border-r border-gray-200 bg-gray-50"><i class="fas fa-check text-green-500"></i></td>
+                                <td class="p-6 text-center"><i class="fas fa-check text-green-500"></i></td>
+                            </tr>
+                            <tr class="border-b border-gray-100">
+                                <td class="p-6 font-semibold text-gray-700 bg-gray-50">Volume Discounts</td>
+                                <td class="p-6 text-center border-r border-gray-200"><i class="fas fa-times text-gray-400"></i></td>
+                                <td class="p-6 text-center border-r border-gray-200 bg-gray-50">Up to 15%</td>
+                                <td class="p-6 text-center">Up to 30%</td>
+                            </tr>
+                            <tr>
+                                <td class="p-6 font-semibold text-gray-700 bg-gray-50">Advanced Analytics</td>
+                                <td class="p-6 text-center border-r border-gray-200"><i class="fas fa-times text-gray-400"></i></td>
+                                <td class="p-6 text-center border-r border-gray-200 bg-gray-50">Basic Reports</td>
+                                <td class="p-6 text-center">Full Dashboard</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coming Soon Services -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Expanding Our Horizon</h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+                    Exciting new services launching soon to serve you better
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div class="bg-white p-8 rounded-2xl shadow-lg hover-lift transition-all animate-on-scroll">
+                    <div class="relative mb-6">
+                        <div class="w-20 h-20 gradient-light rounded-2xl flex items-center justify-center mx-auto">
+                            <i class="fas fa-utensils text-green-600 text-3xl"></i>
+                        </div>
+                        <span class="absolute -top-2 -right-2 bg-yellow-500 text-gray-800 px-3 py-1 rounded-full text-xs font-bold">
+                            Coming Soon
+                        </span>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-800 mb-3 text-center">Food Delivery</h4>
+                    <p class="text-gray-600 mb-6 text-center">
+                        Partnering with local restaurants to bring your favorite meals directly to you with fast, reliable delivery.
+                    </p>
+                    <div class="space-y-2 mb-6">
+                        <div class="flex items-center justify-center gap-2">
+                            <i class="fas fa-check text-green-500 text-sm"></i>
+                            <span class="text-sm text-gray-700">Restaurant Partnerships</span>
+                        </div>
+                        <div class="flex items-center justify-center gap-2">
+                            <i class="fas fa-check text-green-500 text-sm"></i>
+                            <span class="text-sm text-gray-700">Live Order Tracking</span>
+                        </div>
+                        <div class="flex items-center justify-center gap-2">
+                            <i class="fas fa-check text-green-500 text-sm"></i>
+                            <span class="text-sm text-gray-700">Multiple Cuisines</span>
+                        </div>
+                    </div>
+                    <button class="w-full border-2 border-green-600 text-green-600 px-4 py-2 rounded-lg font-semibold hover:bg-green-50 transition-colors">
+                        Notify Me
+                    </button>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-lg hover-lift transition-all animate-on-scroll">
+                    <div class="relative mb-6">
+                        <div class="w-20 h-20 gradient-light rounded-2xl flex items-center justify-center mx-auto">
+                            <i class="fas fa-handshake text-green-600 text-3xl"></i>
+                        </div>
+                        <span class="absolute -top-2 -right-2 bg-yellow-500 text-gray-800 px-3 py-1 rounded-full text-xs font-bold">
+                            Coming Soon
+                        </span>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-800 mb-3 text-center">Professional Errands</h4>
+                    <p class="text-gray-600 mb-6 text-center">
+                        Save time by letting our professionals handle your daily errands, shopping, and other personal tasks.
+                    </p>
+                    <div class="space-y-2 mb-6">
+                        <div class="flex items-center justify-center gap-2">
+                            <i class="fas fa-check text-green-500 text-sm"></i>
+                            <span class="text-sm text-gray-700">Grocery Shopping</span>
+                        </div>
+                        <div class="flex items-center justify-center gap-2">
+                            <i class="fas fa-check text-green-500 text-sm"></i>
+                            <span class="text-sm text-gray-700">Pharmacy Pickups</span>
+                        </div>
+                        <div class="flex items-center justify-center gap-2">
+                            <i class="fas fa-check text-green-500 text-sm"></i>
+                            <span class="text-sm text-gray-700">Custom Requests</span>
+                        </div>
+                    </div>
+                    <button class="w-full border-2 border-green-600 text-green-600 px-4 py-2 rounded-lg font-semibold hover:bg-green-50 transition-colors">
+                        Notify Me
+                    </button>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-lg hover-lift transition-all animate-on-scroll">
+                    <div class="relative mb-6">
+                        <div class="w-20 h-20 gradient-light rounded-2xl flex items-center justify-center mx-auto">
+                            <i class="fas fa-paw text-green-600 text-3xl"></i>
+                        </div>
+                        <span class="absolute -top-2 -right-2 bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                            Q4 2025
+                        </span>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-800 mb-3 text-center">Pet Care Services</h4>
+                    <p class="text-gray-600 mb-6 text-center">
+                        Comprehensive pet care including walking, grooming, sitting, and veterinary transportation services.
+                    </p>
+                    <div class="space-y-2 mb-6">
+                        <div class="flex items-center justify-center gap-2">
+                            <i class="fas fa-check text-green-500 text-sm"></i>
+                            <span class="text-sm text-gray-700">Pet Walking</span>
+                        </div>
+                        <div class="flex items-center justify-center gap-2">
+                            <i class="fas fa-check text-green-500 text-sm"></i>
+                            <span class="text-sm text-gray-700">Grooming Services</span>
+                        </div>
+                        <div class="flex items-center justify-center gap-2">
+                            <i class="fas fa-check text-green-500 text-sm"></i>
+                            <span class="text-sm text-gray-700">Vet Transport</span>
+                        </div>
+                    </div>
+                    <button class="w-full border-2 border-green-600 text-green-600 px-4 py-2 rounded-lg font-semibold hover:bg-green-50 transition-colors">
+                        Notify Me
+                    </button>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-lg hover-lift transition-all animate-on-scroll">
+                    <div class="relative mb-6">
+                        <div class="w-20 h-20 gradient-light rounded-2xl flex items-center justify-center mx-auto">
+                            <i class="fas fa-laptop-house text-green-600 text-3xl"></i>
+                        </div>
+                        <span class="absolute -top-2 -right-2 bg-purple-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                            2025
+                        </span>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-800 mb-3 text-center">Smart Home Setup</h4>
+                    <p class="text-gray-600 mb-6 text-center">
+                        Professional installation and setup of smart home devices, security systems, and home automation.
+                    </p>
+                    <div class="space-y-2 mb-6">
+                        <div class="flex items-center justify-center gap-2">
+                            <i class="fas fa-check text-green-500 text-sm"></i>
+                            <span class="text-sm text-gray-700">Device Installation</span>
+                        </div>
+                        <div class="flex items-center justify-center gap-2">
+                            <i class="fas fa-check text-green-500 text-sm"></i>
+                            <span class="text-sm text-gray-700">Security Systems</span>
+                        </div>
+                        <div class="flex items-center justify-center gap-2">
+                            <i class="fas fa-check text-green-500 text-sm"></i>
+                            <span class="text-sm text-gray-700">Automation Setup</span>
+                        </div>
+                    </div>
+                    <button class="w-full border-2 border-green-600 text-green-600 px-4 py-2 rounded-lg font-semibold hover:bg-green-50 transition-colors">
+                        Notify Me
+                    </button>
+                </div>
+            </div>
+            
+            <div class="gradient-light rounded-2xl p-12 text-center animate-on-scroll">
+                <h3 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">Have a Service Idea?</h3>
+                <p class="text-gray-700 max-w-2xl mx-auto mb-8">
+                    We're always looking to expand our services to better serve our community. Share your suggestions with us!
+                </p>
+                <a href="contact.php#suggestions" class="inline-flex items-center gradient-primary text-white px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
+                    <i class="fas fa-lightbulb mr-2"></i>Suggest a Service
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+     <section class="py-12 sm:py-16 md:py-20 bg-gradient-to-r from-primary-dark via-primary to-[#1D4ED8]">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center animate-on-scroll">
+                <h2 class="text-4xl font-bold text-white mb-6">Ready to Transform Your Service Experience?</h2>
+                <p class="text-lg text-white/90 mb-8">
+                    Join thousands of satisfied customers who trust Cover All for their daily service needs. Get started with a free consultation.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="contact.php" class="bg-white text-primary px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 hover:-translate-y-1 flex items-center justify-center gap-2">
+                        <i class="fas fa-phone-alt mr-2"></i>Schedule Call
+                    </a>
+                    <a href="contact.php" class="border-2 border-white text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold hover:bg-white/10 transition-all duration-300 flex items-center justify-center gap-2">
+                        <i class="fas fa-envelope mr-2"></i>Get Quote
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+ <!-- Footer -->
+    <footer class="bg-black text-white pt-12 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center mr-3">
+                            <span class="text-white font-bold text-xl">C</span>
+                        </div>
+                        <div>
+                            <span class="text-xl font-bold">Cover All</span>
+                            <span class="text-xs text-primary block">All-in-One Solutions</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">
+                        Your comprehensive solution platform for modern living and business operations.
+                    </p>
+                    <div class="flex gap-2">
+                        <a href="#" class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-facebook-f text-sm"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-twitter text-sm"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-linkedin-in text-sm"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-instagram text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2">
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors text-sm">About Us</a></li>
+                        <li><a href="contact.php#careers" class="text-gray-400 hover:text-white transition-colors text-sm">Careers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Press</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="services.html#transportation" class="text-gray-400 hover:text-white transition-colors text-sm">Transportation</a></li>
+                        <li><a href="services.html#waste" class="text-gray-400 hover:text-white transition-colors text-sm">Waste Management</a></li>
+                        <li><a href="services.html#logistics" class="text-gray-400 hover:text-white transition-colors text-sm">Logistics</a></li>
+                        <li><a href="services.html#maintenance" class="text-gray-400 hover:text-white transition-colors text-sm">Maintenance</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Stay Updated</h4>
+                    <p class="text-gray-400 text-sm mb-4">
+                        Subscribe to our newsletter for the latest updates.
+                    </p>
+                    <form class="flex">
+                        <input type="email" placeholder="Enter your email" required
+                               class="flex-grow px-4 py-2 rounded-l-lg text-gray-900 focus:outline-none text-sm">
+                        <button type="submit" class="bg-primary px-4 py-2 rounded-r-lg hover:bg-primary-dark transition-colors">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-6">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <div class="mb-4 md:mb-0">
+                        <p class="text-gray-400 text-sm">
+                            &copy; 2025 Cover All. All rights reserved. 
+<a href="privacy-policy.html" class="text-primary transition-colors hover:text-white">Privacy Policy</a> | 
+<a href="terms-of-service.html" class="text-primary transition-colors hover:text-white">Terms of Service</a>
+                        </p>
+                    </div>
+                    <div class="flex gap-3">
+                        <a href="#" class="flex items-center gap-2 bg-gray-800 px-3 py-2 rounded-lg hover:bg-gray-700 transition-colors text-sm">
+                            <i class="fab fa-apple"></i>
+                            <div class="text-xs">
+                                <div>Download on the</div>
+                                <div class="font-bold">App Store</div>
+                            </div>
+                        </a>
+                        <a href="#" class="flex items-center gap-2 bg-gray-800 px-3 py-2 rounded-lg hover:bg-gray-700 transition-colors text-sm">
+                            <i class="fab fa-google-play"></i>
+                            <div class="text-xs">
+                                <div>Get it on</div>
+                                <div class="font-bold">Google Play</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Service Detail Modal -->
+    <div id="serviceModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-6 border-b border-gray-200 flex justify-between items-center">
+                <h3 class="text-2xl font-bold text-gray-800" id="serviceModalTitle">Service Details</h3>
+                <button onclick="closeServiceModal()" class="text-gray-400 hover:text-gray-600 text-2xl">&times;</button>
+            </div>
+            <div class="p-6" id="serviceModalBody">
+                <!-- Content loaded by JavaScript -->
+            </div>
+            <div class="p-6 border-t border-gray-200 flex justify-end gap-4">
+                <button onclick="closeServiceModal()" class="px-6 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors">
+                    Close
+                </button>
+                <a href="contact.php" class="gradient-primary text-white px-6 py-2 rounded-lg font-semibold hover:opacity-90 transition-opacity">
+                    Book This Service
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile Menu Functionality (Like Contact Page)
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMobileMenu = document.getElementById('close-mobile-menu');
+        const mobileMenuPanel = mobileMenu.querySelector('.absolute');
+
+        // Open mobile menu
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+            setTimeout(() => {
+                mobileMenuPanel.classList.remove('translate-x-full');
+            }, 10);
+            document.body.classList.add('mobile-menu-open');
+        });
+
+        // Close mobile menu
+        function closeMenu() {
+            mobileMenuPanel.classList.add('translate-x-full');
+            setTimeout(() => {
+                mobileMenu.classList.add('hidden');
+                document.body.classList.remove('mobile-menu-open');
+            }, 300);
+        }
+
+        closeMobileMenu.addEventListener('click', closeMenu);
+        
+        // Close menu when clicking outside
+        mobileMenu.addEventListener('click', (e) => {
+            if (e.target === mobileMenu) {
+                closeMenu();
+            }
+        });
+
+        // Close menu when clicking on links
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animate-on-scroll elements
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Service detail modal - FIXED VERSION
+        const serviceDetails = {
+            transportation: {
+                title: 'Laride Transportation',
+                description: 'Premium transportation service with professional drivers, real-time tracking, and multiple vehicle options.',
+                pricing: {
+                    basic: '$25/hour or $1.50/mile',
+                    professional: '$40/hour or $2.25/mile',
+                    enterprise: 'Custom pricing'
+                },
+                features: [
+                    '24/7 availability for on-demand rides',
+                    'Professional, licensed drivers with background checks',
+                    'Real-time GPS tracking and ETA updates',
+                    'Multiple vehicle classes (Economy, Premium, Luxury)',
+                    'Corporate accounts with billing management',
+                    'Scheduled rides and recurring bookings',
+                    'Child safety seats available upon request',
+                    'Airport transfers and corporate shuttles'
+                ],
+                requirements: 'Valid payment method, mobile device for tracking'
+            },
+            waste: {
+                title: 'Smart Trashing System',
+                description: 'Intelligent waste management with recycling, composting, and sustainable disposal practices.',
+                pricing: {
+                    basic: '$30/month',
+                    professional: '$75/month',
+                    enterprise: 'Custom pricing'
+                },
+                features: [
+                    'Regular trash collection on your schedule',
+                    'Comprehensive recycling services (paper, plastic, glass, metal)',
+                    'Composting for organic waste',
+                    'Special waste disposal (e-waste, hazardous materials)',
+                    'Commercial waste management plans',
+                    'Environmentally responsible processing',
+                    'Bulk item pickup services',
+                    'Emergency cleanup and special requests'
+                ],
+                requirements: 'Proper waste separation recommended'
+            },
+            logistics: {
+                title: 'Premium Logistics',
+                description: 'End-to-end logistics solutions with tracking, temperature control, and customized delivery options.',
+                pricing: {
+                    basic: '$15/delivery',
+                    professional: '$25/delivery',
+                    enterprise: 'Custom pricing'
+                },
+                features: [
+                    'Same-day and next-day delivery options',
+                    'Real-time package tracking with notifications',
+                    'Temperature-controlled transport for perishables',
+                    'Business-to-business logistics solutions',
+                    'Customized delivery scheduling',
+                    'Warehousing and storage services',
+                    'International shipping assistance',
+                    'Signature confirmation and secure delivery'
+                ],
+                requirements: 'Accurate address and contact information'
+            },
+            maintenance: {
+                title: 'Property Maintenance',
+                description: 'Professional maintenance and repair services with licensed technicians and emergency response teams.',
+                pricing: {
+                    basic: '$75/service call',
+                    professional: '$125/hour',
+                    enterprise: 'Monthly retainers'
+                },
+                features: [
+                    '24/7 emergency repair services',
+                    'Routine maintenance and preventive inspections',
+                    'Plumbing, electrical, and HVAC services',
+                    'Landscaping and outdoor maintenance',
+                    'Renovation and remodeling projects',
+                    'Commercial property maintenance',
+                    'Quality guarantee on all work',
+                    'Licensed and insured professionals'
+                ],
+                requirements: 'Access to property for service'
+            }
+        };
+
+        // Service detail buttons - FIXED to only work with view-details-btn
+        document.querySelectorAll('.view-details-btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const serviceKey = this.getAttribute('data-service');
+                const service = serviceDetails[serviceKey];
+                
+                if (service) {
+                    document.getElementById('serviceModalTitle').textContent = service.title;
+                    
+                    const featuresHtml = service.features.map(feature => 
+                        `<li class="mb-2">${feature}</li>`
+                    ).join('');
+                    
+                    document.getElementById('serviceModalBody').innerHTML = `
+                        <div class="service-modal-content">
+                            <p class="text-gray-700 mb-6">${service.description}</p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                                <div class="bg-gray-50 p-4 rounded-xl text-center">
+                                    <h6 class="font-bold text-gray-800 mb-2">Basic</h6>
+                                    <p class="text-green-600 font-bold">${service.pricing.basic}</p>
+                                </div>
+                                <div class="gradient-light p-4 rounded-xl text-center">
+                                    <h6 class="font-bold text-gray-800 mb-2">Professional</h6>
+                                    <p class="text-green-600 font-bold">${service.pricing.professional}</p>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-xl text-center">
+                                    <h6 class="font-bold text-gray-800 mb-2">Enterprise</h6>
+                                    <p class="text-green-600 font-bold">${service.pricing.enterprise}</p>
+                                </div>
+                            </div>
+                            
+                            <h6 class="font-bold text-gray-800 mb-3">Key Features:</h6>
+                            <ul class="list-disc pl-5 mb-6 text-gray-700">
+                                ${featuresHtml}
+                            </ul>
+                            
+                            <div class="bg-blue-50 border border-blue-200 rounded-xl p-4">
+                                <div class="flex items-start gap-2">
+                                    <i class="fas fa-info-circle text-blue-500 mt-1"></i>
+                                    <div>
+                                        <strong>Requirements:</strong> ${service.requirements}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    
+                    document.getElementById('serviceModal').classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+
+        function closeServiceModal() {
+            document.getElementById('serviceModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Image gallery functionality
+        document.querySelectorAll('.thumbnail').forEach(thumb => {
+            thumb.addEventListener('click', function() {
+                const service = this.getAttribute('data-service');
+                const fullImageSrc = this.getAttribute('data-full');
+                const mainImage = document.getElementById(`${service}-main-image`).querySelector('img');
+                
+                // Remove active class from all thumbnails in this service
+                document.querySelectorAll(`.thumbnail[data-service="${service}"]`).forEach(t => {
+                    t.classList.remove('active-thumbnail');
+                    t.classList.remove('border-green-500');
+                    t.classList.remove('opacity-100');
+                    t.classList.add('opacity-70');
+                });
+                
+                // Add active class to clicked thumbnail
+                this.classList.add('active-thumbnail');
+                this.classList.add('border-green-500');
+                this.classList.add('opacity-100');
+                this.classList.remove('opacity-70');
+                
+                // Smooth transition for main image
+                mainImage.style.opacity = '0.7';
+                
+                setTimeout(() => {
+                    mainImage.setAttribute('src', fullImageSrc);
+                    mainImage.style.opacity = '1';
+                }, 200);
+            });
+        });
+
+        // Initialize active thumbnails
+        function initializeThumbnails() {
+            document.querySelectorAll('.thumbnail.active-thumbnail').forEach(thumb => {
+                thumb.classList.add('border-green-500');
+                thumb.classList.add('opacity-100');
+                thumb.classList.remove('opacity-70');
+            });
+        }
+
+        // Service navigation hide/show functionality
+        const servicesNavSection = document.getElementById('services-nav-section');
+        const coreServicesSection = document.getElementById('core-services');
+        let serviceNavClicked = false;
+
+        function updateServiceNavVisibility() {
+            const coreServicesRect = coreServicesSection.getBoundingClientRect();
+            const isInServicesSection = coreServicesRect.top <= 100;
+            
+            if (serviceNavClicked && isInServicesSection) {
+                servicesNavSection.classList.add('services-nav-hidden');
+            } else {
+                servicesNavSection.classList.remove('services-nav-hidden');
+            }
+        }
+
+        // Service navigation smooth scroll with active state
+        document.querySelectorAll('.service-nav-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    // Remove active class from all service nav items
+                    document.querySelectorAll('.service-nav-item').forEach(nav => {
+                        nav.classList.remove('active');
+                    });
+                    
+                    // Add active class to clicked item
+                    this.classList.add('active');
+                    
+                    // Set flag that service nav was clicked
+                    serviceNavClicked = true;
+                    
+                    // Scroll to target
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 120,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update visibility after scroll
+                    setTimeout(updateServiceNavVisibility, 300);
+                }
+            });
+        });
+
+        // Reset serviceNavClicked when scrolling up past hero section
+        window.addEventListener('scroll', function() {
+            const heroSection = document.querySelector('.gradient-dark');
+            const heroRect = heroSection.getBoundingClientRect();
+            
+            // If we're back in the hero section, reset the flag
+            if (heroRect.bottom > 150) {
+                serviceNavClicked = false;
+                // Remove active class from all service nav items
+                document.querySelectorAll('.service-nav-item').forEach(nav => {
+                    nav.classList.remove('active');
+                });
+            }
+            
+            updateServiceNavVisibility();
+            
+            // Update progress bar
+            updateProgressBar();
+        });
+
+        // Plan selection buttons
+        document.querySelectorAll('.comparison-table button').forEach(button => {
+            button.addEventListener('click', function() {
+                const plan = this.closest('div').querySelector('h4').textContent;
+                alert(`Thank you for selecting the ${plan} plan! You will be redirected to the booking page.`);
+            });
+        });
+
+        // Notify me buttons
+        document.querySelectorAll('.upcoming-card button').forEach(button => {
+            button.addEventListener('click', function() {
+                const serviceName = this.closest('.upcoming-card').querySelector('h4').textContent;
+                alert(`We'll notify you when ${serviceName} launches! Please check your email for updates.`);
+            });
+        });
+
+        // Close modal on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeServiceModal();
+            }
+        });
+
+        // Close modal on outside click
+        document.getElementById('serviceModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeServiceModal();
+            }
+        });
+
+        // Progress Bar Functionality (like in contact page)
+        function updateProgressBar() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            const progressBar = document.getElementById('progressBar');
+            if (progressBar) {
+                progressBar.style.height = scrolled + '%';
+            }
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeThumbnails();
+            
+            // Update year in footer
+            const footerText = document.querySelector('footer .text-gray-400');
+            if (footerText) {
+                footerText.innerHTML = footerText.innerHTML.replace('2025', new Date().getFullYear());
+            }
+            
+            // Ensure modal is hidden on page load (fix for auto-popup issue)
+            closeServiceModal();
+            
+            // Initialize service nav visibility
+            updateServiceNavVisibility();
+            
+            // Initialize progress bar
+            updateProgressBar();
+        });
+
+        // Fix for extra white space
+        window.addEventListener('load', function() {
+            document.body.style.overflowX = 'hidden';
+            document.documentElement.style.overflowX = 'hidden';
+        });
+
+        // Update progress bar on scroll
+        window.addEventListener('scroll', updateProgressBar);
+    </script>
+</body>
+</html>
